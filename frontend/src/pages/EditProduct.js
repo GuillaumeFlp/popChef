@@ -35,9 +35,9 @@ function EditProduct() {
 
   const handleClickEditProduct = () => {
     const body = { name, description, price };
-    console.log(body);
     fetch(`http://localhost:3002/products/${id}`, {
       method: "PUT",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     })
       .then((response) => {
