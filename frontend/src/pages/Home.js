@@ -27,6 +27,17 @@ function Home() {
       .catch((error) => console.error(error));
   }, [selectedProducts]);
 
+  const deleteSelectedProduct = () => {
+    const id = selectedProducts[0];
+    fetch(`http://localhost:3002/products/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setSelectedProducts([]);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <div style={{ marginTop: 50, height: 400, width: "100%" }}>
@@ -63,7 +74,13 @@ function Home() {
         Edit
       </Button>
 
-      <Button sx={{ m: 2 }} color="error" variant="contained" disabled={!selectedProducts.length}>
+      <Button
+        sx={{ m: 2 }}
+        color="error"
+        variant="contained"
+        disabled={!selectedProducts.length}
+        onClick={deleteSelectedProduct}
+      >
         Delete
       </Button>
     </div>
