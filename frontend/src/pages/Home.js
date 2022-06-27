@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Fab, Button } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
 function Home() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
 
@@ -36,6 +38,12 @@ function Home() {
         setSelectedProducts([]);
       })
       .catch((error) => console.error(error));
+  };
+
+  const editSelectedProduct = () => {
+    const id = selectedProducts[0];
+    setSelectedProducts([]);
+    navigate(`/editProduct/${id}`);
   };
 
   return (
@@ -70,7 +78,13 @@ function Home() {
         View
       </Button>
 
-      <Button sx={{ m: 2 }} color="warning" variant="contained" disabled={!selectedProducts.length}>
+      <Button
+        sx={{ m: 2 }}
+        color="warning"
+        variant="contained"
+        disabled={!selectedProducts.length}
+        onClick={editSelectedProduct}
+      >
         Edit
       </Button>
 

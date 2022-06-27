@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 
 import Home from "./pages/Home";
 import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/addProduct" element={<AddProduct />} />
+        <Route path="/editProduct/:id" element={<EditProduct />} />
       </Routes>
     </div>
   );
