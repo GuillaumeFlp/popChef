@@ -46,6 +46,12 @@ function Home() {
     navigate(`/editProduct/${id}`);
   };
 
+  const showSelectedProduct = () => {
+    const id = selectedProducts[0];
+    setSelectedProducts([]);
+    navigate(`/showProduct/${id}`);
+  };
+
   return (
     <div>
       <div style={{ marginTop: 50, height: 400, width: "100%" }}>
@@ -74,7 +80,13 @@ function Home() {
         </Link>
       </div>
 
-      <Button sx={{ m: 2 }} color="primary" variant="contained" disabled={!selectedProducts.length}>
+      <Button
+        sx={{ m: 2 }}
+        color="primary"
+        variant="contained"
+        disabled={!selectedProducts.length}
+        onClick={showSelectedProduct}
+      >
         View
       </Button>
 
