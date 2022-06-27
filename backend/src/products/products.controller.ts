@@ -39,10 +39,10 @@ export class ProductsController {
   @Put(':id')
   async update(
     @Res() res: Response,
-    @Param('id') id: string,
-    @Body() userDto: ProductDto,
+    @Param('id') id: number,
+    @Body() productDto: ProductDto,
   ) {
-    await this.productsService.update(id, userDto);
+    await this.productsService.update(id, productDto);
     res.status(HttpStatus.OK).send();
   }
 
