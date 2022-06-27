@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 import Home from "./pages/Home";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/addProduct" element={<AddProduct />} />
       </Routes>
     </div>
   );

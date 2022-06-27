@@ -44,7 +44,7 @@ function Home() {
           }}
           selectionModel={selectedProducts}
         />
-        <Link to="">
+        <Link to="/addProduct">
           <Fab
             color="primary"
             aria-label="add"
